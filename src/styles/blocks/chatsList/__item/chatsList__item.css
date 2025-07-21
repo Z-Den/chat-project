@@ -1,0 +1,31 @@
+.chat-item {
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-item:hover {
+    background-color: #2b2c2f;
+}
+
+.chat-item.active {
+    background-color: #343541;
+}
+
+.chat-item::before {
+    content: '💬';
+    font-size: 12px;
+}
+
+.chat-item.active::before {
+    content: '🗨️';
+}

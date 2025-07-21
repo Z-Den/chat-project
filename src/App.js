@@ -1,13 +1,135 @@
+import { useState, useEffect } from 'react';
+import {Input} from './components/Input';
+import {ChatHistory} from './components/ChatHistory';
+import {ChatsList} from './components/ChatsList';
 import './App.css';
+import new_chat_white from './images/wand_stars_white.png';
+import new_chat_black from './images/wand_stars_black.png';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+    const [chats, setChats] = useState(() => {
+        const savedChats = localStorage.getItem('chats');
+        return savedChats ? JSON.parse(savedChats) : [
+            { id: 1, title: 'Новый чат 1', messages: [] },
+        ];
+    });
 
-      </header>
-    </div>
-  );
+    const [activeChat, setActiveChat] = useState(() => {
+        return chats.length > 0 ? chats[0].id : null;
+    });
+    const [editingChatId, setEditingChatId] = useState(null);
+    const [newChatTitle, setNewChatTitle] = useState('');
+
+    // Сохраняем чаты в localStorage
+    useEffect(() => {
+        localStorage.setItem('chats', JSON.stringify(chats));
+    }, [chats]);
+
+    const handleSendMessage = (message) => {
+        if (!message.trim()) return;
+
+        const newMessage = {
+            id: Date.now(),
+            text: message,
+            isUser: true,
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+
+        const botResponse = {
+            id: Date.now() + 1,
+            text: "Это автоматический ответ. В реальном приложении здесь был бы ответ от ChatGPT API.",
+            isUser: false,
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+
+        const updatedChats = chats.map(chat => {
+            if (chat.id === activeChat) {
+                const title = chat.messages.length === 0
+                    ? message.slice(0, 30) + (message.length > 30 ? '...' : '')
+                    : chat.title;
+
+                return {
+                    ...chat,
+                    title,
+                    messages: [...chat.messages, newMessage, botResponse]
+                };
+            }
+            return chat;
+        });
+
+        setChats(updatedChats);
+    };
+
+    const handleNewChat = () => {
+        const newChat = {
+            id: Date.now(),
+            title: `Новый чат ${chats.length + 1}`,
+            messages: []
+        };
+        setChats([...chats, newChat]);
+        setActiveChat(newChat.id);
+        setEditingChatId(null);
+    };
+
+    const handleDeleteChat = (chatId, e) => {
+        e.stopPropagation();
+        const updatedChats = chats.filter(chat => chat.id !== chatId);
+        setChats(updatedChats);
+
+        if (activeChat === chatId) {
+            setActiveChat(updatedChats.length > 0 ? updatedChats[0].id : null);
+        }
+        setEditingChatId(null);
+    };
+
+    const handleStartEditing = (chatId, title, e) => {
+        e.stopPropagation();
+        setEditingChatId(chatId);
+        setNewChatTitle(title);
+    };
+
+    const handleSaveTitle = (chatId, e) => {
+        e.stopPropagation();
+        const updatedChats = chats.map(chat => {
+            if (chat.id === chatId) {
+                return {
+                    ...chat,
+                    title: newChatTitle.trim() || `Чат ${chatId}`
+                };
+            }
+            return chat;
+        });
+
+        setChats(updatedChats);
+        setEditingChatId(null);
+    };
+
+    const handleChatSelect = (chatId) => {
+        setActiveChat(chatId);
+        setEditingChatId(null);
+    };
+
+    const currentChat = chats.find(chat => chat.id === activeChat) || chats[0];
+
+    return (
+        <div className="App">
+            <aside className="sidebar">
+                <button className="new-chat-btn" onClick={handleNewChat}>
+                    Новый чат <img src={new_chat_black} alt={"new chat"}/>
+                </button>
+                <ChatsList
+                    chats={chats}
+                    activeChat={activeChat}
+                    onSelectChat={setActiveChat}
+                />
+            </aside>
+            <main className="chat-container">
+                <ChatHistory messages={currentChat.messages} />
+                <Input onSend={handleSendMessage} />
+            </main>
+        </div>
+    );
 }
 
 export default App;

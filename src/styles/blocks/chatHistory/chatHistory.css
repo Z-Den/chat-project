@@ -1,0 +1,79 @@
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.empty-chat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #8e8ea0;
+    font-size: 16px;
+}
+
+.empty-chat::before {
+    content: '✨';
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    gap: 5px;
+}
+
+.message-content {
+    line-height: 1.5;
+    font-size: 16px;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #8e8ea0;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.message.user {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.message.user .message-content {
+    background-color: #975e38;
+    border-top-right-radius: 0;
+}
+
+.message.bot {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.message.bot .message-content {
+    background-color: #40414f;
+    border-top-left-radius: 0;
+}
+
+.message.bot::before {
+    content: '🤖';
+    margin-right: 15px;
+    font-size: 24px;
+    align-self: flex-start;
+}
+
+.message.user::before {
+    content: '👤';
+    margin-left: 15px;
+    font-size: 24px;
+    align-self: flex-end;
+}

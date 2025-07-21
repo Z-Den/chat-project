@@ -1,0 +1,14 @@
+.chats-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    list-style: none;
+}
+
+.chats-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chats-list::-webkit-scrollbar-thumb {
+    background: #565869;
+}

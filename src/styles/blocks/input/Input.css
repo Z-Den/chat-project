@@ -1,0 +1,47 @@
+.message-form {
+    display: flex;
+    padding: 15px;
+    background-color: #40414f;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.message-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.message-form button {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.message-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.message-form button:hover:not(:disabled) {
+    transform: scale(1.1);
+}
+
+.message-form button img {
+    width: 24px;
+    height: 24px;
+}
+
+.message-form button:not(:disabled) {
+    transform: rotate(-90deg);
+}

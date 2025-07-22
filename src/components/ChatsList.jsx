@@ -1,7 +1,10 @@
 import {ChatItem} from './ChatItem';
+
 import '../styles/blocks/chatsList/ChatsList.css';
 
+
 export function ChatsList({ chats, activeChat, onSelectChat }) {
+
     return (
         <ul className="chats-list">
             {chats.map(chat => (

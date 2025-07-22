@@ -60,7 +60,7 @@ export function ChatProvider({ children }) {
             if (chat.id === chatId) {
                 return {
                     ...chat,
-                    title: newTitle.trim() || `Чат ${chatId}`
+                    title: newTitle.trim() || `Чат без имени`
                 };
             }
             return chat;

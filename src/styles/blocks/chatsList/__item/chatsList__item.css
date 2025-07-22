@@ -1,14 +1,17 @@
 .chat-item {
+    min-height: 40px;
     padding: 12px;
     margin: 5px 0;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
     font-size: 14px;
     transition: all 0.2s ease;
-    white-space: nowrap;
+    word-break: break-word;
+    white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -26,8 +29,13 @@
     font-size: 12px;
 }
 
-.chat-item-actions {
-
+.chat-item span {
+    flex-grow: 1; /* Занимает все доступное пространство */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничиваем количество строк */
+    -webkit-box-orient: vertical;
 }
 
 .chat-item-actions button {
@@ -42,4 +50,8 @@
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
+    background-color: #6e6e7d;
+    outline: none;
+    border-radius: 8px;
+    color: #ffffff;
 }

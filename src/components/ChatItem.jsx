@@ -44,6 +44,7 @@ export function ChatItem({ chat, isActive, onClick }) {
                     onKeyDown={handleKeyDown}
                     autoFocus
                     onClick={(e) => e.stopPropagation()}
+                    maxLength={15}
                 />
             ) : (
                 <>

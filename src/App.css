@@ -20,6 +20,24 @@
   transition: all 0.3s ease;
 }
 
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.logo .name{
+  font-size: 40px;
+}
+
+.logo .image{
+  height: 40px;
+  font-family: Consolas, 'Courier New', monospace;
+}
+
 .new-chat-btn {
   padding: 12px;
   margin: 10px;
@@ -38,7 +56,7 @@
 }
 
 .new-chat-btn:hover {
-  background-color: #2b2c2f;
+  background-color: #975e38;
 }
 
 .new-chat-btn img{

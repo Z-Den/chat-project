@@ -6,6 +6,7 @@ import { ChatsList } from './components/ChatsList';
 import './App.css';
 import new_chat_white from './images/wand_stars_white.png';
 import new_chat_black from './images/wand_stars_black.png';
+import main_logo from './images/yin-yang.png';
 
 function AppContent() {
     const {
@@ -37,6 +38,10 @@ function AppContent() {
     return (
         <div className="App">
             <aside className="sidebar">
+                <div className="logo">
+                    <img className="image" src={main_logo} alt={"logo"} />
+                    <span className="name">Zen-AI</span>
+                </div>
                 <button className="new-chat-btn" onClick={handleNewChat}>
                     Новый чат <img src={new_chat_black} alt={"new chat"}/>
                 </button>

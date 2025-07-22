@@ -4,7 +4,7 @@ export function ChatHistory({ messages }) {
     return (
         <div className="chat-history">
             {messages.length === 0 ? (
-                <div className="empty-chat">Начните новый диалог</div>
+                <div className="empty-chat">Начните общение прямо сейчас!</div>
             ) : (
                 messages.map(msg => (
                     <div key={msg.id} className={`message ${msg.isUser ? 'user' : 'bot'}`}>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import send_white from '../images/send_white.png';
-import send_black from '../images/send_black.png';
+//import send_black from '../images/send_black.png';
 import '../styles/blocks/input/Input.css';
 
 export function Input({ onSend }){

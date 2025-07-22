@@ -33,15 +33,15 @@
     cursor: not-allowed;
 }
 
+.message-form button:not(:disabled) {
+    transform: rotate(-90deg);
+}
+
 .message-form button:hover:not(:disabled) {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(-90deg) translateX(5px);
 }
 
 .message-form button img {
     width: 24px;
     height: 24px;
-}
-
-.message-form button:not(:disabled) {
-    transform: rotate(-90deg);
 }

@@ -5,6 +5,13 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    scroll-behavior: smooth;
+}
+
+@supports (scroll-behavior: smooth) {
+    .chat-history {
+        scroll-behavior: smooth;
+    }
 }
 
 .empty-chat {
@@ -76,4 +83,32 @@
     margin-left: 15px;
     font-size: 24px;
     align-self: flex-end;
+}
+
+.typing-indicator {
+    display: flex;
+    padding: 10px;
+}
+
+.typing-indicator span {
+    height: 10px;
+    width: 10px;
+    background-color: #555;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
 }

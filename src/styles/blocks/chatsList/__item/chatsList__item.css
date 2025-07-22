@@ -26,6 +26,20 @@
     font-size: 12px;
 }
 
-.chat-item.active::before {
-    content: '🗨️';
+.chat-item-actions {
+
+}
+
+.chat-item-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 2px 5px;
+}
+
+.chat-item input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
 }

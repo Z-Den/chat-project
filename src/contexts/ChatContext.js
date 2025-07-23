@@ -53,6 +53,7 @@ export function ChatProvider({ children }) {
             });
 
             const data = await response.json();
+            console.log(data);
             const aiResponse = data.choices[0].message.content;
 
             addMessage(chatId, aiResponse, false);

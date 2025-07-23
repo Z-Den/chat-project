@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from "rehype-highlight";
 
 import '../styles/blocks/chatHistory/chatHistory.css'
+
 
 export function ChatHistory({ messages, isLoading }) {
     const messagesEndRef = useRef(null);
@@ -21,7 +25,18 @@ export function ChatHistory({ messages, isLoading }) {
                 <>
                     {messages.map(msg => (
                         <div key={msg.id} className={`message ${msg.isUser ? 'user' : 'bot'}`}>
-                            <div className="message-content">{msg.text}</div>
+                            <div className="message-content">
+                                {msg.isUser ? (
+                                    msg.text
+                                ) : (
+                                    <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        rehypePlugins={[rehypeHighlight]}
+                                    >
+                                        {msg.text}
+                                    </ReactMarkdown>
+                                )}
+                            </div>
                             <div className="message-time">{msg.timestamp}</div>
                         </div>
                     ))}

@@ -3,20 +3,21 @@
 ## Features:
 
 - validated input form
-- chat list with controls
+- chat list with controls (rename on doubleclick)
 - LLM integration
 - markdown tables, blockqoutes and code support
 - adaptive design
 
 ##Views:
 - Computer:  
-  <img width="1914" height="988" alt="Computer View" src="https://github.com/user-attachments/assets/7ccb2f67-e805-4aa1-9cee-3bd2bc3e2cdb" />
+<img width="2140" height="1302" alt="image" src="https://github.com/user-attachments/assets/f6d089ba-ccd1-4d53-b170-13705342d5c0" />
 
 - Tablet:  
-  <img width="2539" height="1495" alt="Tablet View" src="https://github.com/user-attachments/assets/223c55e4-c011-49cb-96c3-ce460f5a6fc1" />
+  <img width="2541" height="1435" alt="image" src="https://github.com/user-attachments/assets/307e5557-0e68-45aa-aa1b-b2f9cbedb8c1" />
 
 - Phone:  
-  <img width="431" height="938" alt="Phone View" src="https://github.com/user-attachments/assets/b5ee1ea3-4467-46cf-b7d6-2398aaacfcef" />
+  <img width="463" height="866" alt="image" src="https://github.com/user-attachments/assets/19c37d2c-1dc0-4c05-ba27-850935e9878a" />
+  <img width="478" height="853" alt="image" src="https://github.com/user-attachments/assets/db7d0ec5-2c14-4be2-8e77-1e00e6fbf6cd" />
 
 
 

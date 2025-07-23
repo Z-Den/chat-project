@@ -17,6 +17,20 @@ export function ChatHistory({ messages, isLoading }) {
         scrollToBottom();
     }, [messages, isLoading]);
 
+    const PreWithHeader = ({ children, ...props }) => {
+        const language = props['data-language'] ||
+            (children?.props?.className?.replace('hljs language-', '') || 'text');
+
+        return (
+            <div className="code-block-wrapper">
+                <div className="code-language">{language}</div>
+                <pre {...props}>
+                    {children}
+                </pre>
+            </div>
+        );
+    };
+
     return (
         <div className="chat-history">
             {messages.length === 0 ? (
@@ -32,6 +46,9 @@ export function ChatHistory({ messages, isLoading }) {
                                     <ReactMarkdown
                                         remarkPlugins={[remarkGfm]}
                                         rehypePlugins={[rehypeHighlight]}
+                                        components={{
+                                            pre: PreWithHeader
+                                        }}
                                     >
                                         {msg.text}
                                     </ReactMarkdown>

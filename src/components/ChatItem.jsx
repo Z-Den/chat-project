@@ -44,13 +44,16 @@ export function ChatItem({ chat, isActive, onClick }) {
                     onKeyDown={handleKeyDown}
                     autoFocus
                     onClick={(e) => e.stopPropagation()}
-                    maxLength={15}
+                    maxLength={35}
                 />
             ) : (
                 <>
-                    <span>{chat.title}</span>
+                    <span
+                        onDoubleClick={handleEdit}
+                    >
+                        {chat.title}
+                    </span>
                     <div className="chat-item-actions">
-                        <button onClick={handleEdit} className="edit-btn">✏️</button>
                         <button onClick={handleDelete} className="delete-btn">🗑️</button>
                     </div>
                 </>

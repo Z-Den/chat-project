@@ -74,7 +74,7 @@ export function ChatProvider({ children }) {
         setChats(prevChats => prevChats.map(chat => {
             if (chat.id === chatId) {
                 const title = chat.messages.length === 0
-                    ? message.slice(0, 30) + (message.length > 30 ? '...' : '')
+                    ? message.slice(0, 50) + (message.length > 50 ? '...' : '')
                     : chat.title;
 
                 return {

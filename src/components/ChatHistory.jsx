@@ -37,6 +37,12 @@ export function ChatHistory({ messages, isLoading }) {
                 <div className="empty-chat">Начните общение прямо сейчас!</div>
             ) : (
                 <>
+                    <div className="chat-header">
+                        <div className="chat-title">
+                            {messages.length === 0 ? "New Chat" : messages[0].text.slice(0, 50)}
+                        </div>
+                        <div className="header-fade"></div>
+                    </div>
                     {messages.map(msg => (
                         <div key={msg.id} className={`message ${msg.isUser ? 'user' : 'bot'}`}>
                             <div className="message-content">

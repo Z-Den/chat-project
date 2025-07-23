@@ -53,7 +53,7 @@ function AppContent() {
                 className="sidebar-btn"
                 onClick={toggleSidebar}
             >
-                {sidebarOpen ? 'x' : '='}
+                {sidebarOpen ? 'x' : '☰'}
             </div>
 
             {sidebarOpen && (

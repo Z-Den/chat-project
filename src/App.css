@@ -13,7 +13,7 @@
 }
 
 .sidebar {
-  width: 260px;
+  width: 20%;
   background-color: #202123;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
 }
 
 .logo .image:hover{
-  animation: logo-spin infinite 4s ease-in;
+  animation: logo-spin 2s ease-in-out;
 }
 
 .new-chat-btn {
@@ -64,7 +64,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 18px;
   transition: all 0.2s ease;
 }
 
@@ -122,7 +122,7 @@
   .sidebar {
     width: 100%;
     height: auto;
-    max-height: 200px;
+    max-height: 250px;
   }
 
   .chat-container {
@@ -131,5 +131,8 @@
 
   .message {
     max-width: 90%;
+  }
+  .info{
+    transform: translateX(20%);
   }
 }

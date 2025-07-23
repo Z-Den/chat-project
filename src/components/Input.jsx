@@ -21,10 +21,10 @@ export function Input({ onSend }){
                     type="text"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Введите сообщение..."
+                    placeholder="Input message..."
                 />
                 <button type="submit" disabled={!message.trim()}>
-                    <img src={send_white} alt="Отправить" />
+                    <img src={send_white} alt="Send" />
                 </button>
             </form>
         );

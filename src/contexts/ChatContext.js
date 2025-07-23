@@ -9,7 +9,7 @@ export function ChatProvider({ children }) {
     const [chats, setChats] = useState(() => {
         const savedChats = localStorage.getItem('chats');
         return savedChats ? JSON.parse(savedChats) : [
-            { id: 1, title: 'Новый чат 1', messages: [] },
+            { id: 1, title: 'New chat 1', messages: [] },
         ];
     });
 
@@ -23,8 +23,6 @@ export function ChatProvider({ children }) {
     }, [chats]);
 
     const generatedResponse = async (chatId, userMessage) => {
-        setIsLoading(true);
-
         setIsLoading(true);
 
         try {
@@ -59,7 +57,7 @@ export function ChatProvider({ children }) {
             addMessage(chatId, aiResponse, false);
         } catch (error) {
             console.error("OpenRouter error:", error);
-            addMessage(chatId, "Ошибка соединения с AI. Попробуйте позже.", false);
+            addMessage(chatId, "Error connection with AI. Try again later.", false);
         } finally {
             setIsLoading(false);
         }
@@ -92,7 +90,7 @@ export function ChatProvider({ children }) {
     const addChat = () => {
         const newChat = {
             id: Date.now(),
-            title: `Новый чат ${chats.length + 1}`,
+            title: `New chat ${chats.length + 1}`,
             messages: []
         };
         setChats(prev => [...prev, newChat]);
@@ -105,7 +103,7 @@ export function ChatProvider({ children }) {
             if (chat.id === chatId) {
                 return {
                     ...chat,
-                    title: newTitle.trim() || `Чат без имени`
+                    title: newTitle.trim() || `Nameless chat`
                 };
             }
             return chat;

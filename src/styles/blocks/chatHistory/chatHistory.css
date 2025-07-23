@@ -42,6 +42,7 @@
     font-size: 16px;
     padding: 15px 20px;
     border-radius: 8px;
+    max-width: 100%;
 }
 
 /* Стили для блока кода с шапкой */
@@ -155,6 +156,7 @@
 .message.bot {
     justify-content: flex-start;
     align-items: flex-start;
+    max-width: 80%;
 }
 
 .message.bot .message-content {
@@ -202,4 +204,10 @@
 @keyframes bounce {
     0%, 60%, 100% { transform: translateY(0); }
     30% { transform: translateY(-5px); }
+}
+
+@media (max-width: 768px){
+    .message.user{
+        transform: translateX(10%);
+    }
 }

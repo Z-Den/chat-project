@@ -42,7 +42,7 @@ function AppContent() {
                     <span className="name">Zen-AI</span>
                 </div>
                 <button className="new-chat-btn" onClick={handleNewChat}>
-                    Новый чат <img src={new_chat_black} alt={"new chat"}/>
+                    New chat <img src={new_chat_black} alt={"new chat"}/>
                 </button>
                 <ChatsList
                     chats={chats}

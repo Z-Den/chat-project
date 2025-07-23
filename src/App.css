@@ -38,6 +38,19 @@
   font-family: Consolas, 'Courier New', monospace;
 }
 
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo .image:hover{
+  animation: logo-spin infinite 4s ease-in;
+}
+
 .new-chat-btn {
   padding: 12px;
   margin: 10px;

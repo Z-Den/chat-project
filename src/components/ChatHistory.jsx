@@ -4,9 +4,14 @@ import remarkGfm from 'remark-gfm';
 import rehypeHighlight from "rehype-highlight";
 
 import '../styles/blocks/chatHistory/chatHistory.css'
+import {useChat} from "../contexts/ChatContext";
 
+export function ChatHistory({ title, messages }) {
 
-export function ChatHistory({ messages, isLoading }) {
+    const {
+        isLoading
+    } = useChat();
+
     const messagesEndRef = useRef(null);
 
     const scrollToBottom = () => {
@@ -34,12 +39,12 @@ export function ChatHistory({ messages, isLoading }) {
     return (
         <div className="chat-history">
             {messages.length === 0 ? (
-                <div className="empty-chat">Начните общение прямо сейчас!</div>
+                <div className="empty-chat">Start conversation right now!</div>
             ) : (
                 <>
                     <div className="chat-header">
                         <div className="chat-title">
-                            {messages.length === 0 ? "New Chat" : messages[0].text.slice(0, 50)}
+                            {messages.length === 0 ? "New Chat" : title}
                         </div>
                         <div className="header-fade"></div>
                     </div>

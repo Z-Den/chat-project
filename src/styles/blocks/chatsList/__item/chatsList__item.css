@@ -38,6 +38,10 @@
     -webkit-box-orient: vertical;
 }
 
+.chat-item span::first-letter {
+    text-transform: uppercase;
+}
+
 .chat-item-actions button {
     background: none;
     border: none;

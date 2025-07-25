@@ -41,7 +41,18 @@
     width: 100%;
     min-height: 56px;
     z-index: 2;
+
+}
+
+.chat-title {
+    font-size: 18px;
+    color: #ececf1;
+    text-align: center;
     font-weight: bolder;
+}
+
+.chat-title::first-letter{
+    text-transform: uppercase;
 }
 
 .message {

@@ -1,4 +1,3 @@
-// ChatItem.jsx
 import { useState } from 'react';
 import '../styles/blocks/chatsList/__item/chatsList__item.css';
 import { useChat } from '../contexts/ChatContext';

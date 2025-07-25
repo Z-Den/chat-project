@@ -1,9 +1,15 @@
 import {ChatItem} from './ChatItem';
 
 import '../styles/blocks/chatsList/ChatsList.css';
+import {useChat} from "../contexts/ChatContext";
 
+export function ChatsList({ onCloseSidebar }) {
 
-export function ChatsList({ chats, activeChat, onSelectChat, onCloseSidebar }) {
+    const {
+        chats,
+        activeChatId,
+        setActiveChatId,
+    } = useChat();
 
     return (
         <ul className="chats-list">
@@ -11,9 +17,9 @@ export function ChatsList({ chats, activeChat, onSelectChat, onCloseSidebar }) {
                 <ChatItem
                     key={chat.id}
                     chat={chat}
-                    isActive={chat.id === activeChat}
+                    isActive={chat.id === activeChatId}
                     onClick={() => {
-                        onSelectChat(chat.id)
+                        setActiveChatId(chat.id)
                         onCloseSidebar()
                     }}
                 />

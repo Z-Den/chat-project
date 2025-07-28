@@ -97,8 +97,6 @@ export function ChatProvider({ children }) {
             return chat;
         }));
 
-        console.log("New message:", newMessage);
-
         if (isZeroMessages) {
             try {
                 const newTitle = await generateTitle(message);

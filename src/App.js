@@ -1,7 +1,6 @@
 import {useState} from "react";
 
 import { ChatProvider, useChat } from './contexts/ChatContext';
-import { Input } from './components/Input';
 import { ChatHistory } from './components/ChatHistory';
 import { ChatsList } from './components/ChatsList';
 import './App.css';
@@ -12,7 +11,6 @@ import main_logo from './images/yin-yang.png';
 
 function AppContent() {
     const {
-        activeChatId,
         addChat,
         getActiveChat,
     } = useChat();
@@ -33,9 +31,6 @@ function AppContent() {
     };
 
     const currentChat = getActiveChat();
-
-    console.log(currentChat);
-    console.log(activeChatId);
 
     return (
         <div className="App">

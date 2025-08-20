@@ -33,14 +33,16 @@ export function Input(){
         await generatedResponse(activeChatId, message);
     };
 
-    useEffect(() => {
-        currentChat.input = message;
-    }, [currentChat, message]);
-
+    //DO NOT SWAP THIS USEEFFECTS
     useEffect(() => {
         setMessage(currentChat.input ? currentChat.input : '');
         console.log(currentChat);
     }, [activeChatId, currentChat]);
+
+    useEffect(() => {
+        currentChat.input = message;
+    }, [currentChat, message]);
+    //DO NOT SWAP THIS USEEFFECTS
 
     return (
         <form className="message-form" onSubmit={handleSubmit}>

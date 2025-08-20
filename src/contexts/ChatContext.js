@@ -8,7 +8,7 @@ export function ChatProvider({ children }) {
     const [chats, setChats] = useState(() => {
         const savedChats = localStorage.getItem('chats');
         return savedChats ? JSON.parse(savedChats) : [
-            { id: 1, title: 'New chat', messages: [] },
+            { id: 1, title: 'New chat', messages: [], input: '' },
         ];
     });
 
@@ -91,13 +91,12 @@ export function ChatProvider({ children }) {
                 isZeroMessages = chat.messages.length === 0;
                 return {
                     ...chat,
-                    messages: [...chat.messages, newMessage]
+                    messages: [...chat.messages, newMessage],
+                    input: ''
                 };
             }
             return chat;
         }));
-
-        console.log("New message:", newMessage);
 
         if (isZeroMessages) {
             try {
@@ -113,7 +112,8 @@ export function ChatProvider({ children }) {
         const newChat = {
             id: Date.now(),
             title: `New chat ${chats.length + 1}`,
-            messages: []
+            messages: [],
+            input: ''
         };
         setChats(prev => [newChat, ...prev ]);
         setActiveChatId(newChat.id);

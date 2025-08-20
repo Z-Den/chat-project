@@ -5,6 +5,11 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+*::selection{
+  background: darkorange;
+  color: white;
+}
+
 .App {
   display: flex;
   height: 100vh;
